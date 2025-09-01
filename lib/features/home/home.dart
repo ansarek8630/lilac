@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:lilac_test/features/home/search.dart';
 
-
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -69,28 +68,40 @@ class _HomeState extends State<Home> {
                   top: 20,
                   left: 20,
                   right: 20,
-                  child: GestureDetector(
+                  child: InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SearchPage(),
+                            builder: (context) => const SearchPage(),
                           ));
                     },
-                    child: TextField(
-                      style: const TextStyle(color: Colors.white),
-                      readOnly: true,
-                      decoration: InputDecoration(
-                        hintText: "Search movies...",
-                        hintStyle: const TextStyle(color: Colors.white70),
-                        prefixIcon:
-                            const Icon(Icons.search, color: Colors.white),
-                        filled: true,
-                        fillColor: Colors.black.withOpacity(0.5),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none,
-                        ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(45),
+                        color: Colors.white.withOpacity(0.5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.8),
+                            blurRadius: 6,
+                            offset: const Offset(3, 3),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.search),
+                          const Text(
+                            "Search",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1,
+                              fontFamily: "Poppins",
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -98,8 +109,7 @@ class _HomeState extends State<Home> {
               ],
             ),
             const SizedBox(height: 20),
-
-             SizedBox(
+            SizedBox(
               height: 180,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,

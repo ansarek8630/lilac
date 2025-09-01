@@ -27,6 +27,7 @@ class _SearchPageState extends State<SearchPage> {
       movies = response.search;
       isLoading = false;
     } catch (e) {
+      isLoading = false;
       log(e.toString());
     }
   }
