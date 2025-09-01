@@ -13,6 +13,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
+  final List<String> slider = [
+    "assets/sl_11.png",
+    "assets/sl_12.png",
+    "assets/sl_13.png",
+  ];
+
   final List<String> trendingMovies = [
     "assets/sl_21.png",
     "assets/sl_22.png",
@@ -92,6 +98,28 @@ class _HomeState extends State<Home> {
               ],
             ),
             const SizedBox(height: 20),
+
+             SizedBox(
+              height: 180,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: slider.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
+                    width: 120,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      image: DecorationImage(
+                        image: AssetImage(slider[index]),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 40),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(

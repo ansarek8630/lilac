@@ -93,25 +93,30 @@ class _SearchPageState extends State<SearchPage> {
                     child: ListView.builder(
                       itemCount: movies.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          color: Colors.black,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              children: [
-                                Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 8),
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    image: DecorationImage(
-                                      image: AssetImage(movies[index].poster),
-                                      fit: BoxFit.cover,
+                        return GestureDetector(
+                          onTap: (){
+                            // Navigator.push(context, MaterialPageRoute(builder: (context) =>deta,))
+                          },
+                          child: Container(
+                            color: Colors.black,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    margin:
+                                        const EdgeInsets.symmetric(horizontal: 8),
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      image: DecorationImage(
+                                        image: AssetImage(movies[index].poster),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         );
